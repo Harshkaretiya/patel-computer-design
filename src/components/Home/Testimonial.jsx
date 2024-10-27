@@ -17,7 +17,7 @@ const Testimonial = () => {
           <div className="col-md-8">
             <div className="card-body">
               <h5 className="card-title tw-text-balance tw-text-3xl tw-font-semibold tw-tracking-tight tw-text-grey-900 sm:tw-text-4xl">
-                Great things never come from comfort zones
+                "Great things never come from comfort zones"
               </h5>
               <p className="card-text tw-mt-6 tw-text-pretty tw-text-xl/8 tw-font-semibold tw-text-gray-900">
                 Dipak Patel

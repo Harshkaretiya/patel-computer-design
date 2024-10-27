@@ -7,15 +7,29 @@
 }
 
 .mainImage {
-    height: 80vh;
     width: 100vw;
+    aspect-ratio: 32/12;
 }
+@media (min-width: 100px) and (max-width:500px) {
+    .mainImage {
+        aspect-ratio: 1/1;
+    }
+}
+
 
 .testimonialImage{
     width: 100%;
     max-width: 500px;
     /* Full width of container */
     aspect-ratio: 1/1;
+    /* Ensures 1:1 aspect ratio */
+    object-fit: cover;
+}
+.contactImage{
+    width: 100%;
+    max-width: 300px;
+    /* Full width of container */
+    aspect-ratio: 3/4;
     /* Ensures 1:1 aspect ratio */
     object-fit: cover;
 }

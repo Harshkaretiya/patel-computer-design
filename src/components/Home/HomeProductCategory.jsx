@@ -35,7 +35,7 @@ const callouts = [
   },
 ];
 
-export default function ProductCategory() {
+export default function HomeProductCategory() {
   return (
     <div className="tw-bg-gray-100">
       <div className="tw-mx-auto tw-max-w-7xl tw-px-4 sm:tw-px-6 lg:tw-px-8">

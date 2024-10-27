@@ -21,6 +21,13 @@ const Footer = () => {
           </a>
         </div>
         
+        <div className="tw-px-5 tw-py-2">
+          <a href="#" className="tw-text-base tw-leading-6 tw-text-gray-500 hover:tw-text-gray-900">
+            Contact
+          </a>
+        </div>
+
+        
       </nav>
       <div className="tw-flex tw-justify-center tw-mt-8 tw-space-x-6">
         <a href="#" className="tw-text-gray-400 hover:tw-text-gray-500">

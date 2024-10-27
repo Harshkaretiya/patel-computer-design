@@ -8,7 +8,8 @@ import { Link } from 'react-router-dom'
 const navigation = [
   { name: 'Home', href: '' },
   { name: 'Product', href: 'product' },
-  { name: 'About', href: '#' },
+  { name: 'About', href: 'about' },
+  { name: 'Contact', href: 'contact' },
 ]
 
 export default function Navbar() {
