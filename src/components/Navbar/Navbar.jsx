@@ -42,7 +42,7 @@ export default function Navbar() {
             ))}
           </div>
           <div className="tw-hidden lg:tw-flex lg:tw-flex-1 lg:tw-justify-end">
-            <Link to="#" className="tw-text-sm  tw-font-semibold tw-leading-6 tw-text-gray-900">
+            <Link to="query" className="tw-text-sm  tw-font-semibold tw-leading-6 tw-text-gray-900">
               Raise a Query <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
@@ -82,12 +82,12 @@ export default function Navbar() {
                   ))}
                 </div>
                 <div className="tw-py-6">
-                  <a
+                  <Link
                     to="#"
                     className="tw--mx-3 tw-block tw-rounded-lg tw-px-3 tw-py-2.5 tw-text-base tw-font-semibold tw-leading-7 tw-text-gray-900 hover:tw-bg-gray-50"
                   >
-                    Log in
-                  </a>
+                    Raise a Query
+                  </Link>
                 </div>
               </div>
             </div>

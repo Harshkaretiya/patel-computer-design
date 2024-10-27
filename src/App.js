@@ -9,6 +9,7 @@ import ProductItem from './components/Product/ProductItem';
 import ProductView from './components/Product/ProductView';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
+import Query from './components/Form/Query';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/product" element={<Product />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/query" element={<Query />} />
             <Route path="/productitem" element={<ProductItem />} />
             <Route path="/productview" element={<ProductView />} />
           </Routes>
