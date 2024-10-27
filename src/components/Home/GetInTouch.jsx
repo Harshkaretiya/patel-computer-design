@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function GetInTouch() {
     return (
       <div className="tw-bg-white">
@@ -11,12 +13,12 @@ export default function GetInTouch() {
               We're here to assist you promptly with any inquiries or concerns.
               </p>
               <div className="tw-mt-10 tw-flex tw-items-center tw-justify-center tw-gap-x-6 lg:tw-justify-start">
-                <a
-                  href="#"
+                <Link
+                  to="/contact"
                   className="tw-rounded-md tw-bg-gray-900 tw-px-3.5 tw-py-2.5 tw-text-sm tw-font-semibold tw-text-gray-100 tw-shadow-sm hover:tw-bg-gray-600 focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-white"
                 >
                   Contact
-                </a>
+                </Link>
                
               </div>
             </div>

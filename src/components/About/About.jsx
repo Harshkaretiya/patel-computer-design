@@ -29,9 +29,6 @@ const About = () => {
               <p className="tw-text-gray-500 tw-text-base tw-font-normal tw-mb-5">
               nana bus stop, Babra, Gujarat 365421
               </p>
-              <button className="tw-rounded-md tw-bg-gray-900 tw-px-3.5 tw-py-2.5 tw-text-sm tw-font-semibold tw-text-gray-100 tw-shadow-sm hover:tw-bg-gray-600 focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-white">
-                Contact Owner
-              </button>
             </div>
           </div>
         </div>

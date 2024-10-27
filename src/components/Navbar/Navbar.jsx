@@ -1,27 +1,33 @@
-'use client'
-
-import { useState } from 'react'
-import { Dialog, DialogPanel } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { Link } from 'react-router-dom'
+import { useState } from "react";
+import { Dialog, DialogPanel } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Link, useLocation } from "react-router-dom";
 
 const navigation = [
-  { name: 'Home', href: '' },
-  { name: 'Product', href: 'product' },
-  { name: 'About', href: 'about' },
-  { name: 'Contact', href: 'contact' },
-]
+  { name: "Home", href: "" },
+  { name: "Product", href: "product" },
+  { name: "About", href: "about" },
+  { name: "Contact", href: "contact" },
+];
 
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const location = useLocation();
+
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div className="tw-bg-white fixed-top">
       <header className="tw-absolute tw-inset-x-0 tw-top-0 tw-z-50 bg-white">
-        <nav aria-label="Global" className="tw-flex tw-items-center tw-justify-between tw-p-6 lg:tw-px-8">
+        <nav
+          aria-label="Global"
+          className="tw-flex tw-items-center tw-justify-between tw-p-6 lg:tw-px-8"
+        >
           <div className="tw-flex lg:tw-flex-1">
             <Link to="/" className="tw--m-1.5 tw-p-1.5">
-              <h5>Patel <br/>Computer</h5>
+              <h5>
+                Patel <br />
+                Computer
+              </h5>
             </Link>
           </div>
           <div className="tw-flex lg:tw-hidden">
@@ -36,18 +42,31 @@ export default function Navbar() {
           </div>
           <div className="tw-hidden lg:tw-flex lg:tw-gap-x-12">
             {navigation.map((item) => (
-              <Link key={item.name} to={item.href} className="tw-text-sm tw-font-semibold tw-leading-6 tw-text-gray-900">
+              <Link
+                key={item.name}
+                to={item.href}
+                className={`tw-text-sm tw-font-semibold tw-leading-6 ${location.pathname==="/"+item.href ? "tw-text-gray-900" : "tw-text-gray-500"}`}
+              >
                 {item.name}
               </Link>
             ))}
           </div>
-          <div className="tw-hidden lg:tw-flex lg:tw-flex-1 lg:tw-justify-end">
-            <Link to="query" className="tw-text-sm  tw-font-semibold tw-leading-6 tw-text-gray-900">
+          <div className="lg:tw-flex lg:tw-flex-1 lg:tw-justify-end">
+            <Link
+              to="query"
+              className={`tw-text-sm tw-font-semibold tw-leading-6 tw-text-gray-900 ${
+                location.pathname === "/query" ? "tw-invisible" : ""
+              }`}
+            >
               Raise a Query <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
         </nav>
-        <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:tw-hidden">
+        <Dialog
+          open={mobileMenuOpen}
+          onClose={setMobileMenuOpen}
+          className="lg:tw-hidden"
+        >
           <div className="tw-fixed tw-inset-0 tw-z-50" />
           <DialogPanel className="tw-fixed tw-inset-y-0 tw-right-0 tw-z-50 tw-w-full tw-overflow-y-auto tw-bg-white tw-px-6 tw-py-6 sm:tw-max-w-sm sm:tw-ring-1 sm:tw-ring-gray-900/10">
             <div className="tw-flex tw-items-center tw-justify-between">
@@ -81,7 +100,11 @@ export default function Navbar() {
                     </Link>
                   ))}
                 </div>
-                <div className="tw-py-6">
+                <div
+                  className={`tw-py-6 ${
+                    location.pathname === "/query" ? "tw-hidden" : ""
+                  } `}
+                >
                   <Link
                     to="#"
                     className="tw--mx-3 tw-block tw-rounded-lg tw-px-3 tw-py-2.5 tw-text-base tw-font-semibold tw-leading-7 tw-text-gray-900 hover:tw-bg-gray-50"
@@ -94,7 +117,6 @@ export default function Navbar() {
           </DialogPanel>
         </Dialog>
       </header>
-
     </div>
-  )
+  );
 }
