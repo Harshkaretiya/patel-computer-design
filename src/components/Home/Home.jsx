@@ -5,7 +5,12 @@ import GetInTouch from "./GetInTouch";
 import Testimonial from "./Testimonial";
 
 
-const Home = () => {
+const Home = (props) => {
+
+  const handleClicked = (id) =>{
+    props.onClicked(id)
+  }
+
   return (
     <>
       <HomeImage />

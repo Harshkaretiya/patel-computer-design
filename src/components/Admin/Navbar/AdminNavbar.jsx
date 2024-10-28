@@ -1,22 +1,26 @@
-import { useState } from "react";
+import React, { useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+
 
 const navigation = [
-  { name: "Home", href: "" },
-  { name: "Product", href: "product" },
-  { name: "About", href: "about" },
-  { name: "Contact", href: "contact" },
+  { name: "Queries", href: "/admin" },
+  { name: "Manage Products", href: "/admin/manageproduct" },
+  { name: "Archived", href: "/admin/archived" },
 ];
 
-export default function Navbar() {
+const AdminNavbar = () => {
   const location = useLocation();
-
+  useEffect(()=>{
+    console.log(location.pathname)
+  },[location])
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="tw-bg-white fixed-top">
+    <div>
+      <div className="tw-bg-white fixed-top">
       <header className="tw-absolute tw-inset-x-0 tw-top-0 tw-z-50 bg-white">
         <nav
           aria-label="Global"
@@ -45,7 +49,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`tw-text-sm tw-font-semibold tw-leading-6 ${location.pathname==="/"+item.href ? "tw-text-gray-900" : "tw-text-gray-500"}`}
+                className={`tw-text-sm tw-font-semibold tw-leading-6 ${location.pathname===item.href ? "tw-text-gray-900" : "tw-text-gray-500"}`}
               >
                 {item.name}
               </Link>
@@ -53,12 +57,12 @@ export default function Navbar() {
           </div>
           <div className="tw-hidden lg:tw-flex lg:tw-flex-1 lg:tw-justify-end">
             <Link
-              to="query"
+              to="/admin/addnewproduct"
               className={`tw-text-sm tw-font-semibold tw-leading-6 tw-text-gray-900 ${
-                location.pathname === "/query" ? "tw-invisible" : ""
+                location.pathname === "/admin/addnewproduct" ? "tw-invisible" : ""
               }`}
             >
-              Raise a Query <span aria-hidden="true">&rarr;</span>
+             Add New Product <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
         </nav>
@@ -71,10 +75,10 @@ export default function Navbar() {
           <DialogPanel className="tw-fixed tw-inset-y-0 tw-right-0 tw-z-50 tw-w-full tw-overflow-y-auto tw-bg-white tw-px-6 tw-py-6 sm:tw-max-w-sm sm:tw-ring-1 sm:tw-ring-gray-900/10">
             <div className="tw-flex tw-items-center tw-justify-between">
               <Link to="/" className="tw--m-1.5 tw-p-1.5">
-              <h5>
-                Patel <br />
-                Computer
-              </h5>
+                <h5>
+                  Patel <br />
+                  Computer
+                </h5>
               </Link>
               <button
                 type="button"
@@ -116,5 +120,8 @@ export default function Navbar() {
         </Dialog>
       </header>
     </div>
-  );
+    </div>
+  )
 }
+
+export default AdminNavbar

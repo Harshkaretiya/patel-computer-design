@@ -1,11 +1,13 @@
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-export default function Product(props) {
+export default function Product() {
  
   const [data,setData] = useState([]);
+
+  const location = useLocation();
 
   useEffect(() => {
     let isMounted = true; //to remove 2 times mount
@@ -47,8 +49,7 @@ export default function Product(props) {
               <Link
                 key={callout.category_id}
                 className="tw-group tw-relative"
-                to="/productitem"
-                onClick={() => props.onClick(callout.category_id)}
+                to={location.pathname==="/admin/manageproduct"?`/admin/manageproductitem/${callout.category_id}`:`/productitem/${callout.category_id}`}
               >
                 <div className="tw-relative tw-h-80 tw-w-full tw-overflow-hidden tw-rounded-lg tw-bg-white sm:tw-aspect-h-1 sm:tw-aspect-w-2 lg:tw-aspect-h-1 lg:tw-aspect-w-1 tw-group-hover:tw-opacity-75 sm:tw-h-64">
                   <img

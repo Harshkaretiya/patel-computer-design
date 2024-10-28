@@ -2,29 +2,28 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function HomeProductCategory() {
-
-  const [data,setData] = useState([]);
+export default function HomeProductCategory(props) {
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     let isMounted = true; //to remove 2 times mount
-  
+
     const fetchProducts = async () => {
       try {
         const response = await axios.get("http://localhost:5000/categories");
         const result = response.data;
         if (isMounted) {
-          setData(result.slice(0, 4));
+          setData(result);
         }
       } catch (error) {
         console.error("Error fetching products:", error);
       }
     };
-  
+
     fetchProducts();
-  
+
     return () => {
-      isMounted = false;  // cleanup flag to avoid setting state if unmounted
+      isMounted = false; // cleanup flag to avoid setting state if unmounted
     };
   }, []);
 
@@ -63,7 +62,11 @@ export default function HomeProductCategory() {
 
           <div className="tw-mt-6 tw-space-y-12 lg:tw-grid lg:tw-grid-cols-4 lg:tw-gap-x-6 lg:tw-space-y-0">
             {data.map((callout) => (
-              <div key={callout.category_id} className="tw-group tw-relative">
+              <Link
+                key={callout.category_id}
+                className="tw-group tw-relative"
+                to={`/productitem/${callout.category_id}`}
+              >
                 <div className="tw-relative tw-h-80 tw-w-full tw-overflow-hidden tw-rounded-lg tw-bg-white sm:tw-aspect-h-1 sm:tw-aspect-w-2 lg:tw-aspect-h-1 lg:tw-aspect-w-1 tw-group-hover:tw-opacity-75 sm:tw-h-64">
                   <img
                     alt="Images"
@@ -74,7 +77,7 @@ export default function HomeProductCategory() {
                 <p className="tw-text-base tw-mt-3 tw-font-semibold tw-text-gray-900">
                   {callout.category_name}
                 </p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
