@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { apiUrl } from "../../../config";
 
 const AdminQueryPage = () => {
 
@@ -12,7 +13,7 @@ const AdminQueryPage = () => {
 
     const fetchProducts = async () => {
       try {
-        const response = await axios.post("http://localhost:5000/getqueries",{
+        const response = await axios.post(`${apiUrl}/getqueries`,{
           archived:false
         });
         const result = response.data;

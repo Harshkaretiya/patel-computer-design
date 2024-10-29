@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import HomeProductCategory from "../Home/HomeProductCategory";
 import { Link, useLocation, useParams } from "react-router-dom";
+import { apiUrl } from '../../config';
 
 const ProductView = () => {
   const { productId } = useParams(); // Get product ID from URL
@@ -13,7 +14,7 @@ const ProductView = () => {
   
     const fetchProducts = async () => {
       try {
-        const response = await axios.post("http://localhost:5000/productid",{
+        const response = await axios.post(`${apiUrl}/productid`,{
           productId:productId
         });
         const result = response.data;

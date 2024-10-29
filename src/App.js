@@ -10,21 +10,10 @@ import ProductView from './components/Product/ProductView';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
 import Query from './components/Form/Query';
-import { useState } from 'react';
 import AdminHome from './components/Admin/AdminHome/AdminHome';
 
-function App() {
-  const [categoryId, setCategoryId] = useState(null);
-  const [product, setProduct] = useState(null);
 
-  const setCategoryIdData = (id) => {
-    setCategoryId(id);
-    console.log(id);
-  };
-  
-  const setProductData = (id) => {
-    setProduct(id);
-  };
+function App() {
 
   return (
     <BrowserRouter>

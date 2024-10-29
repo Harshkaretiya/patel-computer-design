@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { apiUrl } from "../../config";
 
 export default function Query() {
   const [data, setData] = useState({
@@ -17,7 +18,7 @@ export default function Query() {
 
   const sendData = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/newquery", {
+      const response = await axios.post(`${apiUrl}/newquery`, {
         fullname: data.name,
         number: data.number,
         description: data.query,

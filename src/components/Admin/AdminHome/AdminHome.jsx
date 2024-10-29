@@ -16,6 +16,7 @@ const AdminHome = () => {
       <AdminNavbar/>
       <Routes>
         <Route path='' element={<AdminQueryPage/>}/>
+        <Route path='admin' element={<AdminQueryPage/>}/>
         <Route path='archived' element={<ArchivedQuery/>}/>
         <Route path='viewquery/:queryId' element={<ViewQueryPage />}/>
         <Route path='archived/viewquery/:queryId' element={<ViewQueryPage />}/>

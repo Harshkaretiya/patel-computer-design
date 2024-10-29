@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { apiUrl } from "../../../config";
 
 const ViewQueryPage = () => {
   // const { id, fullname, number, description, created_at, archived }
@@ -15,7 +16,7 @@ const ViewQueryPage = () => {
 
     const fetchProducts = async () => {
       try {
-        const response = await axios.post("http://localhost:5000/getqueriesbyid",{
+        const response = await axios.post(`${apiUrl}/getqueriesbyid`,{
           queryId : queryId
         });
         const result = response.data;
@@ -52,7 +53,7 @@ const ViewQueryPage = () => {
 
   const updateArchive = async () => {
     try {
-      const response = await axios.put("http://localhost:5000/updatearchived", {
+      const response = await axios.put(`${apiUrl}/updatearchived`, {
         queryId: queryId,
         archived: !data.archived,
       });

@@ -7,10 +7,6 @@ import Testimonial from "./Testimonial";
 
 const Home = (props) => {
 
-  const handleClicked = (id) =>{
-    props.onClicked(id)
-  }
-
   return (
     <>
       <HomeImage />

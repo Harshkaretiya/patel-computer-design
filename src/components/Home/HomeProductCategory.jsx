@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { apiUrl } from "../../config";
 
 export default function HomeProductCategory(props) {
   const [data, setData] = useState([]);
@@ -10,7 +11,7 @@ export default function HomeProductCategory(props) {
 
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/categories");
+        const response = await axios.get(`${apiUrl}/categories`);
         const result = response.data;
         if (isMounted) {
           setData(result);

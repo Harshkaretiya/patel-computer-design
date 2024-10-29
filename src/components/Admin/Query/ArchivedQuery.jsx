@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { apiUrl } from "../../../config";
 
 const ArchivedQuery = () => {
   const [data, setData] = useState([]);
@@ -10,7 +11,7 @@ const ArchivedQuery = () => {
 
     const fetchProducts = async () => {
       try {
-        const response = await axios.post("http://localhost:5000/getqueries", {
+        const response = await axios.post(`${apiUrl}/getqueries`, {
           archived: true,
         });
         const result = response.data;

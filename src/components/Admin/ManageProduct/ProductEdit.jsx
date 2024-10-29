@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { apiUrl } from "../../../config";
 
 const ProductEdit = () => {
   const location = useLocation();
@@ -30,7 +31,7 @@ const ProductEdit = () => {
   
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/categories");
+        const response = await axios.get(`${apiUrl}/categories`);
         const result = response.data;
 
           setCategories(result);
@@ -44,7 +45,7 @@ const ProductEdit = () => {
 
     const getEditProduct = async () => {
       try {
-        const response = await axios.post("http://localhost:5000/productid",{
+        const response = await axios.post(`${apiUrl}/productid`,{
           productId:productId
         });
         const result = response.data;
@@ -63,7 +64,7 @@ const ProductEdit = () => {
 
     const fetchSelectedCategory = async (categoryId) => {
       try {
-        const response = await axios.post("http://localhost:5000/products", {
+        const response = await axios.post(`${apiUrl}/products`, {
           categoryid: categoryId,
         });
         const result = response.data;
@@ -102,7 +103,7 @@ const ProductEdit = () => {
   const sendData = async () => {
     if (location.pathname === `/admin/editproduct/${productId}`) {
       try {
-        const response = await axios.put("http://localhost:5000/updateproduct", {
+        const response = await axios.put(`${apiUrl}/updateproduct`, {
           name: data.name,
           imageurl: data.imageurl,
           description: data.description,
@@ -119,7 +120,7 @@ const ProductEdit = () => {
       }
     }else{
       try {
-        const response = await axios.post("http://localhost:5000/newproduct", {
+        const response = await axios.post(`${apiUrl}/newproduct`, {
           name: data.name,
           imageurl: data.imageurl,
           description: data.description,
