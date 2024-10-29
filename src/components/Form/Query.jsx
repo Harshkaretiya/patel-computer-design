@@ -69,7 +69,7 @@ export default function Query() {
       >
         <div className="tw-space-y-6">
           <div className="tw-flex tw-justify-center tw-items-center">
-            <h2 className="tw-text-2xl tw-font-bold tw-text-gray-900">
+            <h2 className="tw-text-2xl tw-font-bold tw-text-gray-900 ">
               Fill Details and Your Query
             </h2>
           </div>
